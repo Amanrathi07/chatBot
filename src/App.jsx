@@ -12,7 +12,7 @@ function formatMarkdownToHTML(text) {
 }
 
 function App() {
-  console.log(import.meta.env.VITE_API_KEY);
+  
   const [text, setText] = useState("");
   const [aiAnswer, setAiAnswer] = useState("Hello! How can I help you today?");
 
@@ -31,11 +31,16 @@ function App() {
   }
 
 return (
-  <div className="h-screen w-[90%] max-w-4xl mx-auto flex flex-col items-center justify-start bg-gray-900 p-5 rounded-3xl shadow-xl text-white">
+  <div className="h-auto w-[90%] mt-16 max-w-4xl mx-auto flex flex-col items-center justify-start bg-gray-900 p-5 rounded-3xl shadow-xl text-white">
     
     <h1 className="text-3xl font-bold text-white mt-10 mb-5">chatBot</h1>
-    
-    <div className="w-full relative mb-6">
+
+
+   <div className="w-auto h-auto bg-gray-800 border-2 border-gray-700 p-6 rounded-xl shadow-md overflow-auto text-gray-200 leading-relaxed">
+  <div className="min-h-auto" dangerouslySetInnerHTML={{ __html: formatMarkdownToHTML(aiAnswer) }}></div>
+</div>
+
+    <div className="w-full mt-6 relative mb-6">
       <textarea
         placeholder="Enter your query..."
         className="bg-gray-800 text-white border-2 border-gray-700 w-full p-5 pr-24 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 min-h-[120px] resize-none"
@@ -50,9 +55,8 @@ return (
       </button>
     </div>
 
-    <div className="w-auto bg-gray-800 border-2 border-gray-700 p-6 rounded-xl shadow-md overflow-auto text-gray-200 leading-relaxed">
-      <div dangerouslySetInnerHTML={{ __html: formatMarkdownToHTML(aiAnswer) }} />
-    </div>
+    
+
 
   </div>
 );
