@@ -33,7 +33,7 @@ function App() {
 return (
   <div className="h-screen w-[90%] max-w-4xl mx-auto flex flex-col items-center justify-start bg-gray-900 p-5 rounded-3xl shadow-xl text-white">
     
-    <h1 className="text-3xl font-bold text-white mt-10 mb-5">AI Assistant</h1>
+    <h1 className="text-3xl font-bold text-white mt-10 mb-5">chatBot</h1>
     
     <div className="w-full relative mb-6">
       <textarea
