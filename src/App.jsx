@@ -50,7 +50,7 @@ return (
       </button>
     </div>
 
-    <div className="w-full bg-gray-800 border-2 border-gray-700 p-6 rounded-xl shadow-md overflow-auto text-gray-200 leading-relaxed">
+    <div className="w-auto bg-gray-800 border-2 border-gray-700 p-6 rounded-xl shadow-md overflow-auto text-gray-200 leading-relaxed">
       <div dangerouslySetInnerHTML={{ __html: formatMarkdownToHTML(aiAnswer) }} />
     </div>
 
