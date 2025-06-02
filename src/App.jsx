@@ -13,24 +13,35 @@ function formatMarkdownToHTML(text) {
 
 function App() {
   
+  
+
   const [text, setText] = useState("");
   const [aiAnswer, setAiAnswer] = useState("Hello! How can I help you today?");
+
+  const[chatHistory,setChatHistory]=useState([{user:"question",chatBot:"answer"}]);
 
   const ai = new GoogleGenAI({
     apiKey:import.meta.env.VITE_API_KEY
   });
 
   async function main(question) {
-    setAiAnswer("Responding...");
+    try {
+      setAiAnswer("Responding...");
     console.log("main call");
     const response = await ai.models.generateContent({
       model: "gemini-2.0-flash",
       contents: question,
     });
     setAiAnswer(response.text);
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 return (
+
+
+
   <div className="h-auto w-[90%] mt-16 max-w-4xl mx-auto flex flex-col items-center justify-start bg-gray-900 p-5 rounded-3xl shadow-xl text-white">
     
     <h1 className="text-3xl font-bold text-white mt-10 mb-5">chatBot</h1>
